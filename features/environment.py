@@ -6,10 +6,11 @@ from app.application import Application
 
 
 def browser_init(context):
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    options.add_argument('--window-size=1920x1080')
-    context.driver = EventFiringWebDriver(webdriver.Chrome(chrome_options=options), MyListener())
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('--headless')
+    # options.add_argument('--window-size=1920x1080')
+    # context.driver = EventFiringWebDriver(webdriver.Chrome(chrome_options=options), MyListener())
+    context.driver = EventFiringWebDriver(webdriver.Firefox(), MyListener())
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
     context.driver.wait = WebDriverWait(context.driver, 15)
